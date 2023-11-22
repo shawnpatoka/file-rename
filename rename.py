@@ -1,14 +1,19 @@
 import os
 
-STARTS_WITH = "Rick.and.Morty."
-FORMATTED_NAME = "rick_and_morty_"
+STARTS_WITH = "How"
+
+REPLACE_TEXT = ""
+REPLACE_WITH = ""
+
 
 for file in os.listdir("./"):
-    # print(file)
-    if file.startswith(STARTS_WITH):
-        old_name = os.path.join("./", file)
-        new_name = old_name.replace(STARTS_WITH,FORMATTED_NAME).replace(".HDTV.x264","")
-        os.rename(old_name,new_name)
-        print(file)
-    
+    base_name = os.path.basename(file)
+    file_name, file_ext = os.path.splitext(base_name)
+    if file_ext == '.mkv' or file_ext == '.avi' or file_ext == '.mp4' or file_ext == '.m4v':
+        # Add a dash into the file_name string
+        # new_file_name = file_name[:30] + " -" + file_name[30:]
+        new_file_name = file_name.replace(REPLACE_TEXT,REPLACE_WITH)
+        os.rename(base_name,new_file_name+file_ext)
+        print(file_name)
+
 

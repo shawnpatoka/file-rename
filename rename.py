@@ -1,6 +1,6 @@
 import os
 
-STARTS_WITH = "How"
+STARTS_WITH = "Example"
 
 REPLACE_TEXT = ""
 REPLACE_WITH = ""
